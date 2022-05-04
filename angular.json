@@ -19,7 +19,10 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "options": {            
+          "options": {   
+            "allowedCommonJsDependencies": [
+              "lodash"
+            ],         
             "outputPath": "dist/home-accounting",
             "index": "src/index.html",
             "main": "src/main.ts",
