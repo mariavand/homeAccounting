@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Message } from 'src/app/shared/models/message.model';
 import { User } from 'src/app/shared/models/user.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -19,10 +19,20 @@ export class LoginComponent implements OnInit {
 
   constructor(private userService:UsersService, 
     private authService: AuthService, 
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
     this.message = new Message('danger', '');
+
+    this.route.queryParams
+      .subscribe((params: Params) => {
+        if(params['nowCanLogin']){
+          this.showMessage({text:'Now, you can login.',  type:'success'});
+        }
+      });
+
     this.form = new FormGroup({
       'email': new FormControl('', [Validators.required, Validators.email]),
       'password': new FormControl('', [Validators.required, Validators.minLength(6)])
@@ -30,8 +40,8 @@ export class LoginComponent implements OnInit {
 
   }
 
-  private showMessage(text: string, type: string = 'danger'){
-    this.message = new Message(type, text);
+  private showMessage(message: Message){
+    this.message = message;
     window.setTimeout(() => {
       this.message.text = '';
     }, 5000);
@@ -49,11 +59,11 @@ export class LoginComponent implements OnInit {
             //this.router.navigate(['']);
           }
           else{
-            this.showMessage('Incorrect password');
+            this.showMessage({text:'Incorrect password', type:'danger'});
           }
         }
         else{
-          this.showMessage('This user does not exist');
+          this.showMessage({text:'This user does not exist', type:'danger'});
         }
       });
   }

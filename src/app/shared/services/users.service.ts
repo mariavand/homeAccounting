@@ -12,4 +12,9 @@ export class UsersService{
         return this.http.get(`http://localhost:3000/users?email=${email}`)
             .pipe(map((response: any) => response)).pipe(map((user: User[]) => user[0]));
     }
+
+    createNewUser(user: User): Observable<User>{
+        return this.http.post('http://localhost:3000/users', user)
+            .pipe(map((response: any) => response));
+    }
 }
