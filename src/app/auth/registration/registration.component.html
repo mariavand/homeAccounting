@@ -1,5 +1,4 @@
 <h5 class="card-title">Registration</h5>
-<div class="alert alert-{{ message.type }}" *ngIf="message.text">{{ message.text }}</div>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group my-2" [ngClass]="{'has-error': form.get('email')?.invalid && form.get('email')?.touched}">
         <label for="email">Email*</label>
@@ -7,6 +6,7 @@
         <span class="form-help-text" *ngIf="form.get('email')?.invalid && form.get('email')?.touched"> 
             <span class="text-danger" *ngIf="form.get('email')?.['errors']?.['required']"> Email is required.</span>
             <span class="text-danger" *ngIf="form.get('email')?.['errors']?.['email']"> This is not an email.</span>
+            <span class="text-danger" *ngIf="form.get('email')?.['errors']?.['forbiddenEmail']"> This email is already in use.</span>
         </span>
     </div>
     <div class="form-group my-2" [ngClass]="{'has-error': form.get('password')?.invalid && form.get('password')?.touched}">

@@ -1,26 +1,32 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "email": "kati@mail.gr",
-            "password": "123456",
-            "name": "Administrator"
-        }
-    ],
-    "bill": {
-        "value": 100000,
-        "currency": "RUB"
+  "users": [
+    {
+      "id": 1,
+      "email": "kati@mail.gr",
+      "password": "123456",
+      "name": "Administrator"
     },
-    "categories": [
-        {
-            "name": "Home",
-            "capacity": 15000,
-            "id": 1
-        },
-        {
-            "name": "Food",
-            "capacity": 10000,
-            "id": 2
-        }
-    ]
+    {
+      "email": "kati@unipi.gr",
+      "password": "12345678",
+      "name": "Maria",
+      "id": 2
+    }
+  ],
+  "bill": {
+    "value": 100000,
+    "currency": "RUB"
+  },
+  "categories": [
+    {
+      "name": "Home",
+      "capacity": 15000,
+      "id": 1
+    },
+    {
+      "name": "Food",
+      "capacity": 10000,
+      "id": 2
+    }
+  ]
 }

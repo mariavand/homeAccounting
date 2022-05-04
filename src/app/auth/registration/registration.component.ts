@@ -1,6 +1,5 @@
-import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AsyncValidatorFn, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Message } from 'src/app/shared/models/message.model';
 import { User } from 'src/app/shared/models/user.model';
@@ -15,28 +14,19 @@ import { UsersService } from 'src/app/shared/services/users.service';
 export class RegistrationComponent implements OnInit {
 
   form!: FormGroup;
-  message!: Message;
 
   constructor(private userService:UsersService, 
     private authService: AuthService, 
     private router: Router) { }
 
-  ngOnInit(): void {
-    this.message = new Message('danger', '');
+  ngOnInit(): void {        
     this.form = new FormGroup({
-      'email': new FormControl('', [Validators.required, Validators.email]),
+      'email': new FormControl('', [Validators.required, Validators.email], <AsyncValidatorFn>this.forbiddenEmails.bind(this)),
       'password': new FormControl('', [Validators.required, Validators.minLength(6)]),
       'name': new FormControl('', [Validators.required]),
       'agree': new FormControl(false, [Validators.requiredTrue])
     });
-
-  }
-
-  private showMessage(text: string, type: string = 'danger'){
-    this.message = new Message(type, text);
-    window.setTimeout(() => {
-      this.message.text = '';
-    }, 5000);
+    console.log(this.form);
   }
 
   onSubmit(){
@@ -51,5 +41,19 @@ export class RegistrationComponent implements OnInit {
         })
       });
 
+  }
+
+  forbiddenEmails(control: FormControl): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.userService.getUserByEmail(control.value)
+        .subscribe((user: User) => {
+          if(user){
+            resolve({forbiddenEmail: true});
+          }
+          else{
+            resolve(null);
+          }
+        })
+    });
   }
 }
