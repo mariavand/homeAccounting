@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { AuthService } from './shared/services/auth.service';
 import { UsersService } from './shared/services/users.service';
+import { SystemModule } from './system/system.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UsersService } from './shared/services/users.service';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    SystemModule
   ],
   providers: [UsersService, AuthService],
   bootstrap: [AppComponent]
