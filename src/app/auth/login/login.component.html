@@ -3,7 +3,7 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group my-2" [ngClass]="{'has-error': form.get('email')?.invalid && form.get('email')?.touched}">
         <label for="email">Email*</label>
-        <input type="email" class="form-control underlined" formControlName="email" name="email" id="email" placeholder="Insert your email">
+        <input type="email" class="form-control text-white bg-dark underlined" formControlName="email" name="email" id="email" placeholder="Insert your email">
         <span class="form-help-text" *ngIf="form.get('email')?.invalid && form.get('email')?.touched"> 
             <span class="text-danger" *ngIf="form.get('email')?.['errors']?.['required']"> Email is required.</span>
             <span class="text-danger" *ngIf="form.get('email')?.['errors']?.['email']"> This is not an email.</span>
@@ -12,7 +12,7 @@
     
     <div class="form-group my-2" [ngClass]="{'has-error': form.get('password')?.invalid && form.get('password')?.touched}">
         <label for="pass">Password*</label>
-        <input type="password" class="form-control underlined" formControlName="password" name="password" id="password" placeholder="Insert your password">
+        <input type="password" class="form-control text-white bg-dark underlined" formControlName="password" name="password" id="password" placeholder="Insert your password">
         <span class="form-help-text" *ngIf="form.get('password')?.invalid && form.get('password')?.touched"> 
             <span class="text-danger" *ngIf="form.get('password')?.['errors']?.['required']"> Password is required.</span>
             <span class="text-danger" *ngIf="form.get('password')?.['errors']?.['minlength'] && form.get('password')?.['errors']?.['minlength']?.['requiredLength']"> Password has to contain at least {{ form.get('password')?.['errors']?.['minlength']?.['requiredLength'] }} symbols.</span>
