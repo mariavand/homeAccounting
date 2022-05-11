@@ -1,0 +1,18 @@
+$selected: rgb(75, 64, 197);
+$linkcolor: aliceblue;
+.active{
+    background-color: $selected;
+    color: $linkcolor;
+}
+.nav-link{
+    color: $linkcolor;
+}
+a:hover{
+    color: $linkcolor;;
+}
+div{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}

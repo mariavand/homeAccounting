@@ -20,7 +20,7 @@ import { SystemModule } from './system/system.module';
     HttpClientModule,
     AppRoutingModule,
     AuthModule,
-    SystemModule
+    SystemModule    
   ],
   providers: [UsersService, AuthService],
   bootstrap: [AppComponent]
