@@ -22,7 +22,7 @@
           "options": {   
             "allowedCommonJsDependencies": [
               "lodash"
-            ],         
+            ],       
             "outputPath": "dist/home-accounting",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -76,6 +76,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "homeAccounting:build"
+          },
           "configurations": {
             "production": {
               "browserTarget": "homeAccounting:build:production"
