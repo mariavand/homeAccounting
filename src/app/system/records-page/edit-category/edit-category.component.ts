@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'wfm-edit-category',
@@ -8,8 +8,6 @@ import { FormGroup } from '@angular/forms';
 })
 export class EditCategoryComponent implements OnInit {
 
-  form!: FormGroup;
-  
   constructor() { }
 
   ngOnInit(): void {

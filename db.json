@@ -27,6 +27,11 @@
       "name": "Food",
       "capacity": 10000,
       "id": 2
+    },
+    {
+      "name": "Car",
+      "capacity": 7000,
+      "id": 3
     }
   ]
 }
