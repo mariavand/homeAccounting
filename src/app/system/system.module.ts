@@ -12,6 +12,9 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { BillCardComponent } from './bill-page/bill-card/bill-card.component';
 import { CurrencyCardComponent } from './bill-page/currency-card/currency-card.component';
 import { BillService } from "./shared/services/bill.service";
+import { AddEventComponent } from './records-page/add-event/add-event.component';
+import { AddCategoryComponent } from './records-page/add-category/add-category.component';
+import { EditCategoryComponent } from './records-page/edit-category/edit-category.component';
 
 @NgModule({
     declarations:[    
@@ -23,7 +26,10 @@ import { BillService } from "./shared/services/bill.service";
       SidebarComponent,
       HeaderComponent,
       BillCardComponent,
-      CurrencyCardComponent
+      CurrencyCardComponent,
+      AddEventComponent,
+      AddCategoryComponent,
+      EditCategoryComponent
     ],
     imports:[
       CommonModule,      

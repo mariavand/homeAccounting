@@ -1,0 +1,25 @@
+<div class="card bg-dark text-white">
+    <div class="card-header">
+      <h4>Edit a category</h4>
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group my-3 has-error">
+            <label for="Select" class="form-label">Select a category</label>
+            <select id="Select" class="form-select bg-dark text-white">
+              <option>select</option>
+              <option>select</option>
+              <option>select</option>
+            </select>
+            <span class="form-help-text">Validation error</span>
+          </div>
+          <div class="form-group my-3 has-error">
+            <label for="category-value">Limit</label>
+            <input type="number" class="form-control text-white bg-dark underlined" formControlName="category-value" name="category-value" id="category-value" placeholder="Insert a limit">
+            <span class="form-help-text">Validation error</span>
+          </div>
+        </form>
+      </blockquote>
+    </div>
+  </div>

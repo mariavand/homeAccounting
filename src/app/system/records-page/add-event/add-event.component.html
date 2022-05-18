@@ -1,0 +1,39 @@
+<div class="card bg-dark text-white">
+    <div class="card-header">
+      <h4>Add new event</h4>
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="my-3">
+            <label for="Select" class="form-label">Select a category</label>
+            <select id="Select" class="form-select bg-dark text-white">
+              <option>select</option>
+              <option>select</option>
+              <option>select</option>
+            </select>
+          </div>
+          <div class="form-group my-1 has-error">
+            <label for="category-value">Choose the type</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+              <label class="form-check-label" for="exampleRadios1">
+                Income
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+              <label class="form-check-label" for="exampleRadios2">
+                Outcome
+              </label>
+            </div>
+          </div>
+          <div class="form-group my-3 has-error">
+            <label for="category-name">Insert the sum</label>
+            <input type="number" class="form-control text-white bg-dark underlined" formControlName="category-name" name="category-name" id="category-name" placeholder="Insert a name">
+            <span class="form-help-text">Validation error</span>
+          </div>
+        </form>
+      </blockquote>
+    </div>
+  </div>
