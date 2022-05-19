@@ -20,7 +20,7 @@
             <label for="e-category-name">Name</label>
             <input type="text" 
             class="form-control text-white bg-dark underlined"             
-            name="e-name" id="e-category-name"
+            name="ename" id="e-category-name"
             placeholder="Insert a name" required 
             [ngModel] = "currentCategory?.name" #ename="ngModel">
             <span *ngIf="ename.invalid && ename.touched" class="text-danger">It can't be omitted.</span>

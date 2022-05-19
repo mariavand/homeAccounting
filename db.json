@@ -19,6 +19,7 @@
   },
   "categories": [
     {
+      "name": "Home",
       "capacity": 15000,
       "id": 1
     },

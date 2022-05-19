@@ -26,11 +26,11 @@ export class EditCategoryComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    let {name, capacity} = form.value;
+    console.log(form.value);
+    let { ename, capacity } = form.value;
     if(capacity < 0) capacity *= -1;
 
-    const category = new Category(name, capacity, +this.currentCategoryId);
-
+    const category = new Category(ename, capacity, this.currentCategoryId);
     this.categoriesService.updateCategory(category)
       .subscribe((category: Category) => {
         this.onCategoryEdit.emit(category);
