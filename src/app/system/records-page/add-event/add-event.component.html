@@ -4,39 +4,51 @@
     </div>
     <div class="card-body">
       <blockquote class="blockquote mb-0">
-        <!--<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
           <div class="form-group my-3">
-            <label for="Select" class="form-label">Select a category</label>
-            <select id="Select" class="form-select bg-dark text-white" ngModel #name="ngModel">
-              <option>select</option>
-              <option>select</option>
-              <option>select</option>
+            <label for="select-category" class="form-label">Select a category</label>
+            <select id="select-category" required
+              class="form-control bg-dark text-white" 
+              id="category" name="category"
+              [ngModel] = "1"              
+            >
+              <option *ngFor = "let c of categories" [value] = "c.id">{{ c.name }}</option>
             </select>
           </div>
           <div class="form-group my-1 has-error">
             <label for="category-value">Choose the type</label>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-              <label class="form-check-label" for="exampleRadios1">
-                Income
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-              <label class="form-check-label" for="exampleRadios2">
-                Outcome
+            <div class="form-check" *ngFor = "let t of types">
+              <input class="form-check-input" 
+                type="radio" name="type" id="type" 
+                [value] = "t.type" required [ngModel] = "'outcome'"
+              >
+              <label class="form-check-label" for="type">
+                {{ t.label }}
               </label>
             </div>
           </div>
-          <div class="form-group my-3 has-error">
-            <label for="category-name">Insert the sum</label>
-            <input type="number" class="form-control text-white bg-dark underlined" formControlName="category-name" name="category-name" id="category-name" placeholder="Insert a name">
-            <span class="form-help-text">Validation error</span>
+          <div class="form-group my-3" [ngClass]="{'has-error': amount.invalid && amount.touched}">
+            <label for="category-name">Insert the amount</label>
+            <input type="number" 
+              class="form-control text-white bg-dark underlined" required
+              name="amount" id="amount" placeholder="Insert the amount"
+              [ngModel] = "0" min = "0" #amount="ngModel"
+            >
+            <span class="form-help-text text-danger" *ngIf="amount.invalid && amount.touched">It can't be omitted. It must be positive.</span>
           </div>
-          <div class="form-group my-2">
+          <div class="form-group my-3" [ngClass]="{'has-error': description.invalid && description.touched}">
+            <label for="category-name">Insert the description</label>
+            <input type="text" 
+              class="form-control text-white bg-dark underlined" required
+              name="description" id="description" placeholder="Insert the description"
+              ngModel #description="ngModel"
+            >
+            <span class="form-help-text text-danger" *ngIf="description.invalid && description.touched">It can't be omitted.</span>
+          </div>
+          <div class="form-group my-3">
             <button type="submit" class="btn btn-info" [disabled] = "f.invalid">Add</button>
           </div>
-        </form>-->
+        </form>
       </blockquote>
     </div>
   </div>

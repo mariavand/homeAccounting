@@ -22,7 +22,7 @@
             placeholder="Insert capacity" required 
             #capacity="ngModel" [ngModel]="1"
             min="1">
-            <span *ngIf="capacity.invalid && capacity.touched" class="text-danger">Capacity cannot be negative or zero</span>
+            <span *ngIf="capacity.invalid && capacity.touched" class="text-danger">Capacity can't be negative or zero</span>
           </div>
           <div class="form-group my-3">
             <button type="submit" class="btn btn-info" [disabled] = "f.invalid">Save</button>

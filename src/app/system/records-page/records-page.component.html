@@ -13,7 +13,7 @@
     <div class="row mx-1">
         <!--<div class="col-6 text-center text-white">Loading...</div>-->
         <div class="col-6">
-            <wfm-add-event></wfm-add-event>
+            <wfm-add-event [categories] = "categories"></wfm-add-event>
         </div>
         <div class="col-6">
             <wfm-add-category (onCategoryAdd)="newCategoryAdded($event)"></wfm-add-category>

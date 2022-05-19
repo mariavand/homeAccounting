@@ -38,9 +38,18 @@
     {
       "id": 1,
       "type": "income",
+      "amount": "1250",
       "category": "2",
       "date": "12.05.2022 19:49:02",
       "description": "Gave away food"
+    },
+    {
+      "id": 2,
+      "type": "outcome",
+      "amount": "1300",
+      "category": "1",
+      "date": "13.05.2022 19:49:02",
+      "description": "Bought dishwasher"
     }
   ]
 }
