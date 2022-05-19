@@ -4,25 +4,41 @@
     </div>
     <div class="card-body">
       <blockquote class="blockquote mb-0">
-        <!--<form [formGroup]="form" (ngSubmit)="onSubmit()">
-          <div class="form-group my-3 has-error">
-            <label for="Select" class="form-label">Select a category</label>
-            <select id="Select" class="form-select bg-dark text-white">
-              <option>select</option>
-              <option>select</option>
-              <option>select</option>
+        <div class="alert alert-{{ message.type }}" *ngIf = "message.text">{{ message.text }}</div>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="form-group my-3">
+            <label for="e-select-category" class="form-label">Select a category</label>
+            <select id="e-select-category" 
+              class="form-control bg-dark text-white" 
+              [(ngModel)] = "currentCategoryId" (change)="onCategoryChange()" 
+              [ngModelOptions]="{standalone: true}"
+            >
+              <option *ngFor = "let c of categories" [value] = "c.id">{{ c.name }}</option>
             </select>
-            <span class="form-help-text">Validation error</span>
           </div>
-          <div class="form-group my-3 has-error">
+          <div class="form-group my-2" [ngClass]="{ 'has-error': ename.invalid && ename.touched }">
+            <label for="e-category-name">Name</label>
+            <input type="text" 
+            class="form-control text-white bg-dark underlined"             
+            name="e-name" id="e-category-name"
+            placeholder="Insert a name" required 
+            [ngModel] = "currentCategory?.name" #ename="ngModel">
+            <span *ngIf="ename.invalid && ename.touched" class="text-danger">It can't be omitted.</span>
+          </div>
+          <div class="form-group my-2" [ngClass]="{ 'has-error': capacity.invalid && capacity.touched }">
             <label for="category-value">Limit</label>
-            <input type="number" class="form-control text-white bg-dark underlined" formControlName="category-value" name="category-value" id="category-value" placeholder="Insert a limit">
-            <span class="form-help-text">Validation error</span>
+            <input type="number" 
+            class="form-control text-white bg-dark underlined"            
+            name="capacity"
+            placeholder="Insert capacity" required 
+            #capacity="ngModel" [ngModel] = "currentCategory?.capacity"
+            min="1">
+            <span *ngIf="capacity.invalid && capacity.touched" class="text-danger">Capacity cannot be negative or zero</span>
           </div>
-          <div class="form-group my-2">
-            <button type="submit" class="btn btn-info">Edit</button>
+          <div class="form-group my-3">
+            <button type="submit" class="btn btn-info" [disabled] = "f.invalid">Save</button>
           </div>
-        </form>-->
+        </form>
       </blockquote>
     </div>
   </div>

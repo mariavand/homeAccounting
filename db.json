@@ -19,7 +19,6 @@
   },
   "categories": [
     {
-      "name": "Home",
       "capacity": 15000,
       "id": 1
     },
@@ -32,6 +31,15 @@
       "name": "Car",
       "capacity": 7000,
       "id": 3
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "type": "income",
+      "category": "2",
+      "date": "12.05.2022 19:49:02",
+      "description": "Gave away food"
     }
   ]
 }

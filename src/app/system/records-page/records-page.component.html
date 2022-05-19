@@ -8,8 +8,8 @@
         
     </div>
 </div>
-
-<div class="container">
+<div class="container text-center" *ngIf="!isLoaded">Loading...</div>
+<div class="container" *ngIf="isLoaded">
     <div class="row mx-1">
         <!--<div class="col-6 text-center text-white">Loading...</div>-->
         <div class="col-6">
@@ -21,7 +21,7 @@
     </div>
     <div class="row mx-1 my-4">
         <div class="col-6">
-            <wfm-edit-category></wfm-edit-category>
+            <wfm-edit-category [categories] = "categories" (onCategoryEdit)="categoryWasEdited($event)"></wfm-edit-category>
         </div>
     </div>
 </div>
