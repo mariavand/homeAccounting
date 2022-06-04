@@ -11,6 +11,10 @@ export class BillService extends BaseApi{
         super(http);
     }
 
+    updateBill(bill: Bill): Observable<Bill>{
+        return this.put('bill', bill);
+    }
+
     getBill(): Observable<Bill>{
         return this.get('bill');
     }

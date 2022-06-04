@@ -50,6 +50,30 @@
       "category": "1",
       "date": "13.05.2022 19:49:02",
       "description": "Bought dishwasher"
+    },
+    {
+      "type": "income",
+      "amount": 1480,
+      "category": 2,
+      "date": "04.06.2022 22:06:13",
+      "description": "Visit okey with points. Free food.",
+      "id": 3
+    },
+    {
+      "type": "outcome",
+      "amount": 2470,
+      "category": 2,
+      "date": "04.06.2022 22:06:13",
+      "description": "Weekly shopping",
+      "id": 4
+    },
+    {
+      "type": "outcome",
+      "amount": 4000,
+      "category": 3,
+      "date": "04.06.2022 22:06:13",
+      "description": "Benzin",
+      "id": 5
     }
   ]
 }
