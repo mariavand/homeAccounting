@@ -40,7 +40,6 @@ export class AddEventComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(form: NgForm){
-    console.log(form.value);
     let {amount, category, description, type} = form.value;
 
     const event = new WfmEvent(

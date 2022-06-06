@@ -14,7 +14,7 @@
     }
   ],
   "bill": {
-    "value": 100000,
+    "value": 98800,
     "currency": "EUR"
   },
   "categories": [
@@ -46,8 +46,8 @@
     {
       "id": 2,
       "type": "outcome",
-      "amount": "1300",
-      "category": "1",
+      "amount": 1300,
+      "category": 1,
       "date": "13.05.2022 19:49:02",
       "description": "Bought dishwasher"
     },
@@ -74,6 +74,14 @@
       "date": "04.06.2022 22:06:13",
       "description": "Benzin",
       "id": 5
+    },
+    {
+      "type": "outcome",
+      "amount": 1200,
+      "category": 3,
+      "date": "06.06.2022 22:46:58",
+      "description": "Test",
+      "id": 6
     }
   ]
 }
