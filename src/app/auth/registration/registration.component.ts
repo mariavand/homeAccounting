@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AsyncValidatorFn, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AsyncValidatorFn, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Message } from 'src/app/shared/models/message.model';
 import { User } from 'src/app/shared/models/user.model';
@@ -13,18 +13,18 @@ import { UsersService } from 'src/app/shared/services/users.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  form!: FormGroup;
+  form!: UntypedFormGroup;
 
   constructor(private userService:UsersService, 
     private authService: AuthService, 
     private router: Router) { }
 
   ngOnInit(): void {        
-    this.form = new FormGroup({
-      'email': new FormControl('', [Validators.required, Validators.email], <AsyncValidatorFn>this.forbiddenEmails.bind(this)),
-      'password': new FormControl('', [Validators.required, Validators.minLength(6)]),
-      'name': new FormControl('', [Validators.required]),
-      'agree': new FormControl(false, [Validators.requiredTrue])
+    this.form = new UntypedFormGroup({
+      'email': new UntypedFormControl('', [Validators.required, Validators.email], <AsyncValidatorFn>this.forbiddenEmails.bind(this)),
+      'password': new UntypedFormControl('', [Validators.required, Validators.minLength(6)]),
+      'name': new UntypedFormControl('', [Validators.required]),
+      'agree': new UntypedFormControl(false, [Validators.requiredTrue])
     });
     console.log(this.form);
   }
@@ -43,7 +43,7 @@ export class RegistrationComponent implements OnInit {
 
   }
 
-  forbiddenEmails(control: FormControl): Promise<any> {
+  forbiddenEmails(control: UntypedFormControl): Promise<any> {
     return new Promise((resolve, reject) => {
       this.userService.getUserByEmail(control.value)
         .subscribe((user: User) => {
