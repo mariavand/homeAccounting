@@ -1,1 +1,68 @@
-<p>history-events works!</p>
+
+<div class="container">
+    
+        <div class="card bg-dark text-white">
+            <div class="card-header">
+                <div class="d-flex flex-row justify-content-between">
+                    <div class="col-4 my-3">
+                        <h3>Event List</h3>
+                    </div>
+                        <div class="col-4 mx-3">
+                            <div class="form-inline">
+                                <div class="form-group my-3">
+                                    <input type="email" class="form-control" placeholder="Search">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 mx-3">
+                            <div class="btn-inline my-3">
+                                <div class="btn btn-info dropdown-toggle">Parameter</div>
+                            </div>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item">Action</a>
+                                <a class="dropdown-item">Action</a>
+                                <a class="dropdown-item">Action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item">Action</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        
+            <div class="card-body">
+                <table class="table table-dark table-striped text-white">
+                    <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Sum</th>
+                          <th scope="col">Date</th>
+                          <th scope="col">Category</th>
+                          <th scope="col">Type</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let e of events; let idx = index">
+                          <th scope="row">{{ idx + 1 }}</th>
+                          <td>{{ e.amount | number:'1.2' }}</td>
+                          <td>{{ e.date | wfmMoment:'DD.MM.YYYY HH:mm:ss' }}</td>
+                          <td>{{ e.catName }}</td>
+                          <td>
+                              <span [ngClass]="getEventClass(e)">
+                                  <span *ngIf="e.type === 'income'">
+                                    Income
+                                  </span>
+                                  <span *ngIf="e.type === 'outcome'">
+                                    Outcome
+                                  </span>
+                              </span>
+                          </td>
+                          <td>
+                            <a [routerLink]="['/system/history', e.id]" class="btn btn-outline-primary text-white">Open</a>
+                          </td>
+                        </tr>
+                      </tbody>
+                </table>
+            </div>
+        </div>
+</div>
