@@ -69,6 +69,9 @@ export class PlanningPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if(this.s1) this.s1.unsubscribe;
+    if(this.s2) this.s2.unsubscribe;
+    if(this.s3) this.s3.unsubscribe;
+
   }
 
 }

@@ -10,8 +10,11 @@
 </div>
 
 <div class="container">
-    <div class="row mx-1">
-        <wfm-history-chart></wfm-history-chart>
+    <div class="row text-center" *ngIf="!isLoaded">
+        Loading...
+    </div>
+    <div class="row" *ngIf="isLoaded">
+        <wfm-history-chart [data]="chartData"></wfm-history-chart>
         <wfm-history-events></wfm-history-events>
         <wfm-history-filter></wfm-history-filter>
     </div>
