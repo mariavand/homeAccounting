@@ -25,6 +25,8 @@ import { HistoryEventsComponent } from './history-page/history-events/history-ev
 import { HistoryDetailComponent } from './history-page/history-detail/history-detail.component';
 import { HistoryFilterComponent } from './history-page/history-filter/history-filter.component';
 import { MomentPipe } from "./shared/pipes/moment.pipe";
+import { DropdownDirective } from "./shared/directives/dropdown.directive";
+import { FilterPipe } from "./shared/pipes/filter.pipe";
 
 
 
@@ -46,7 +48,9 @@ import { MomentPipe } from "./shared/pipes/moment.pipe";
       HistoryEventsComponent,
       HistoryDetailComponent,
       HistoryFilterComponent,
-      MomentPipe
+      MomentPipe,
+      FilterPipe,
+      DropdownDirective
     ],
     imports:[
       CommonModule,      

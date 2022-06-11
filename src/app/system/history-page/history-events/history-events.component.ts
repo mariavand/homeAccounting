@@ -12,6 +12,9 @@ export class HistoryEventsComponent implements OnInit {
   @Input() categories: Category[] = [];
   @Input() events: WfmEvent[] = [];
 
+  searchValue = '';
+  searchPlaceholder = 'Sum';
+  searchField = 'amount';
 
   constructor() { }
 
@@ -27,4 +30,17 @@ export class HistoryEventsComponent implements OnInit {
     };
   }
 
+  changeCriteria(field: string){
+    
+    const namesMap = {
+      amount: 'Sum',
+      date: 'Date',
+      category: 'Category',
+      type: 'Type'
+    };
+
+    this.searchPlaceholder = namesMap[field as keyof typeof namesMap];
+    this.searchField = field;
+
+  }
 }

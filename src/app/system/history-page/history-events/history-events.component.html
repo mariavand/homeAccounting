@@ -10,21 +10,26 @@
                         <div class="col-4 mx-3">
                             <div class="form-inline">
                                 <div class="form-group my-3">
-                                    <input type="email" class="form-control" placeholder="Search">
+                                    <input type="text" 
+                                    class="form-control" 
+                                    [placeholder]="searchPlaceholder"
+                                    [(ngModel)]="searchValue"
+                                    >
                                 </div>
                             </div>
                         </div>
                         <div class="col-4 mx-3">
-                            <div class="btn-inline my-3">
-                                <div class="btn btn-info dropdown-toggle">Parameter</div>
-                            </div>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item">Action</a>
-                                <a class="dropdown-item">Action</a>
-                                <a class="dropdown-item">Action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item">Action</a>
-                            </div>
+                                <div class="btn-group" wfmDropdown #r="wfmDropdown">
+                                    
+                                    <button class="btn btn-info btn-inline my-3 dropdown-toggle" data-toggle="dropdown">Parameter</button>
+                                    
+                                    <div class="dropdown-menu" [ngClass]="{'show':r.isOpen}">
+                                        <a class="dropdown-item" (click)="changeCriteria('amount')">Sum</a>
+                                        <a class="dropdown-item" (click)="changeCriteria('date')">Date</a>
+                                        <a class="dropdown-item" (click)="changeCriteria('category')">Category</a>
+                                        <a class="dropdown-item" (click)="changeCriteria('type')">Type</a>
+                                    </div>
+                                </div>
                         </div>
                 </div>
             </div>
@@ -42,7 +47,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let e of events; let idx = index">
+                        <tr *ngFor="let e of events | wfmFilter:searchValue:searchField; let idx = index">
                           <th scope="row">{{ idx + 1 }}</th>
                           <td>{{ e.amount | number:'1.2' }}</td>
                           <td>{{ e.date | wfmMoment:'DD.MM.YYYY HH:mm:ss' }}</td>
