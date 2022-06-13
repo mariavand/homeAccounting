@@ -1,1 +1,46 @@
-<p>history-detail works!</p>
+<div class="container my-3">
+    <div class="row">
+        <div class="col">
+            <div class="d-flex flex-row justify-content-start">
+                <a [routerLink]="['/system/history']" class="btn-sm btn btn-outline-light mx-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                    </svg>
+                </a>            
+                <h3 class="text-white">
+                    Record № {{ event.id }} Details
+                </h3>
+            </div>
+        </div>          
+    </div>
+    <hr class="text-white">
+</div>
+
+<div class="container">
+    <div class="row justify-content-md-center my-5">
+        <div class="col-6">
+            <div class="card bg-dark text-white" *ngIf="!isLoaded">Loading...</div>
+            <div class="card bg-dark text-white" *ngIf="isLoaded">
+                <div class="card-header" [ngClass]="{
+                    'bg-success': event.type === 'income',
+                    'bg-danger': event.type === 'outcome'
+                }">
+                  <h4 *ngIf="event.type === 'income'">Income</h4>
+                  <h4 *ngIf="event.type === 'outcome'">Outcome</h4>
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote">
+                    <ul>
+                        <li>Sum: <b>{{ event.amount | number:'1.2' }}</b></li>
+                        <li>Category: <b>{{ event.catName }}</b></li>
+                        <li>Description: <b>{{ event.description }}</b></li>
+                    </ul>
+                  </blockquote>
+                </div>
+                <div class="card-footer">
+                    {{ event.date }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
