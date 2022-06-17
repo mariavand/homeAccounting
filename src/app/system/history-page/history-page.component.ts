@@ -18,6 +18,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
   categories: Category[] = [];
   events: WfmEvent[] = [];
   chartData: any = [];
+  isFilterVisible = false;
 
   constructor(private categoriesService: CategoriesService, private eventsService: EventsService) { }
 
@@ -53,6 +54,22 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
       });
     });
     
+  }
+
+  private toggleFilterVisibility(dir: boolean){
+    this.isFilterVisible = dir;
+  }
+
+  openFilter(){
+    this.toggleFilterVisibility(true);
+  }
+
+  onFilterApply(filterData: any){
+
+  }
+
+  onFilterCancel(){
+    this.toggleFilterVisibility(false);
   }
 
   ngOnDestroy(): void {
