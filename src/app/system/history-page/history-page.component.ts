@@ -65,7 +65,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
   }
 
   onFilterApply(filterData: any){
-
+    console.log(filterData);
   }
 
   onFilterCancel(){

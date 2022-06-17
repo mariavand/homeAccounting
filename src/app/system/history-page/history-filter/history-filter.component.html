@@ -13,7 +13,7 @@
               <select id="select-category" required
                 class="form-control bg-dark text-white" 
                 id="category" name="category"
-                [ngModel] = "selectedPeriod"              
+                [(ngModel)] = "selectedPeriod"              
               >
                 <option *ngFor="let p of timePeriods" [value]="p.type">{{ p.label }}</option>
               </select>

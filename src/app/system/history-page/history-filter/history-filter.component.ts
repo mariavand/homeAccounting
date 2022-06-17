@@ -51,9 +51,10 @@ export class HistoryFilterComponent{
   }
 
   applyFilter(){
+    console.log(this.selectedCategories);
     this.onFilterApply.emit({
       types: this.selectedTypes,
-      categories: this.categories,
+      categories: this.selectedCategories,
       period: this.selectedPeriod
     });
   }
