@@ -14,7 +14,7 @@
     }
   ],
   "bill": {
-    "value": 98800,
+    "value": 98300,
     "currency": "EUR"
   },
   "categories": [
@@ -40,7 +40,7 @@
       "type": "income",
       "amount": "1250",
       "category": "2",
-      "date": "12.05.2022 19:49:02",
+      "date": "12.06.2022 19:49:02",
       "description": "Gave away food",
       "catName": "Food"
     },
@@ -49,7 +49,7 @@
       "type": "outcome",
       "amount": 1300,
       "category": 1,
-      "date": "13.05.2022 19:49:02",
+      "date": "13.06.2022 19:49:02",
       "description": "Bought dishwasher",
       "catName": "Home"
     },
@@ -79,6 +79,15 @@
       "description": "Benzin",
       "catName": "Car",
       "id": 5
+    },
+    {
+      "type": "outcome",
+      "amount": 500,
+      "category": 3,
+      "date": "17.06.2022 15:03:22",
+      "description": "Test",
+      "catName": "Car",
+      "id": 6
     }
   ]
 }

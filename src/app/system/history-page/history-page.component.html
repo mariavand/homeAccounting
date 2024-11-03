@@ -20,11 +20,11 @@
 
 <div class="container">
     <div class="row text-center" *ngIf="!isLoaded">
-        Loading...
+        <wfm-loader></wfm-loader>
     </div>
     <div class="row" *ngIf="isLoaded">
         <wfm-history-chart [data]="chartData"></wfm-history-chart>
-        <wfm-history-events [categories]="categories" [events]="events"></wfm-history-events>
+        <wfm-history-events [categories]="categories" [events]="filteredEvents"></wfm-history-events>
         <div *ngIf="isFilterVisible">
             <wfm-history-filter 
                 (onFilterApply)="onFilterApply($event)"

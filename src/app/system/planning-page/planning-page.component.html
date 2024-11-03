@@ -21,7 +21,7 @@
                 </div>                
             </div>
             <div class="card-body">
-              <blockquote class="blockquote" *ngIf="!isLoaded">Loading...</blockquote>
+              <blockquote class="blockquote text-center" *ngIf="!isLoaded"><wfm-loader></wfm-loader></blockquote>
               <blockquote class="blockquote" *ngIf="isLoaded">
 
                   <div class="row" *ngFor = "let c of categories">

@@ -43,6 +43,7 @@ export class PlanningPageComponent implements OnInit, OnDestroy {
     });
 
     if (this.s1 && this.s2 && this.s3) this.isLoaded = true;
+
   }
 
   getCategoryCost(cat: Category): number {

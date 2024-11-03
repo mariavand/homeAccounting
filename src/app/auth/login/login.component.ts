@@ -31,6 +31,9 @@ export class LoginComponent implements OnInit {
         if(params['nowCanLogin']){
           this.showMessage({text:'Now, you can login.',  type:'success'});
         }
+        else if(params['accessDenied']){
+          this.showMessage({text:'You must login first.',  type:'warning'});
+        }
       });
 
     this.form = new UntypedFormGroup({

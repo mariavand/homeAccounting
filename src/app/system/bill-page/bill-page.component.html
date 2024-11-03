@@ -20,9 +20,11 @@
 </div>
 
 <div class="container">
-    <div class="row mx-1">
-        <div class="col-4 text-center text-white" *ngIf="!isLoaded">Loading...</div>
-        <div class="col-4" *ngIf="isLoaded">
+    <div class="row  mx-1 text-center" *ngIf="!isLoaded">
+        <wfm-loader></wfm-loader>
+    </div>
+    <div class="row mx-1"  *ngIf="isLoaded">
+        <div class="col-4">
             <wfm-bill-card [bill]="bill" [currency]="currency"></wfm-bill-card>
         </div>
         <div class="col-8">
